@@ -2,7 +2,7 @@
 ## Full Stack Labs: MobX Demonstration
 This repro holds example code for a meetup with [Reacto: The Sacramento React Meetup Group](https://www.meetup.com/Sacramento-ReactJS-Meetup/events/243936126/)
 
-This class is Kindly hosted by [Full Stack Labs](https://www.fullstacklabs.co/)
+This class is hosted by [Full Stack Labs](https://www.fullstacklabs.co/)
 
 
 ## Introduction
