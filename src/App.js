@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Emoji from './Emoji';
 
 //styles
+import './App.css';
 import './App.scss';
 import './App.less';
 import './App.styl';
@@ -12,6 +13,7 @@ import cssStyles from './First.module.css';
 
 import MicroDemo from './MicroDemo/MicroDemo';
 import AsyncDemo from './AsyncDemo/AsyncDemo';
+import GridDemo from './GridDemo/GridDemo';
 
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
@@ -24,10 +26,17 @@ import autoBind from 'react-autobind';
 
   constructor(props) { super(props); autoBind(this); }
   
-  @observable demoNumber = 1;               // demo only, model in UI
+  @observable demoNumber = 0;               // demo only, model in UI
   
-  @action plusOne() { this.demoNumber++; }  // increment the number. just setting the var re-renders
-  @action lessOne() { this.demoNumber--; }  // decrement the number. just setting the var re-renders
+  @action plusOne() { 
+    this.demoNumber++; // increment the number. just setting the var re-renders
+    if(this.demoNumber>2){ this.demoNumber=2; }
+  }  
+
+  @action lessOne() { 
+      this.demoNumber--; // decrement the number. just setting the var re-renders
+    if (this.demoNumber<0) { this.demoNumber=0; }
+  }  
   
   
   render() {
@@ -47,6 +56,9 @@ import autoBind from 'react-autobind';
         </div>
 
     }
+    else if (this.demoNumber === 2) {
+      demo = <div><h1>Grid Demo</h1><GridDemo /></div>
+    }
     else{demo = <div><h1>Demo {this.demoNumber}</h1></div>   }
 
 
@@ -61,9 +73,10 @@ import autoBind from 'react-autobind';
           <div className="App-subtitle">
             A tour of MobX features and techniques
           </div>
+          <button onClick={this.lessOne}>&lt;&lt;&lt; Prev Demo</button>
+          <button onClick={this.plusOne}>Next Demo >>></button>        
+          <br/>
         </div>
-        <button onClick={this.lessOne}>&lt;&lt;&lt; Prev Demo</button>
-        <button onClick={this.plusOne}>Next Demo >>></button>        
         <div style={{ padding: '10px', boder: '1px solidblack', minHeight:'400px' }}>
           {demo}
         </div>

@@ -5,6 +5,7 @@
   "dependencies": {
     "custom-react-scripts": "0.2.1",
     "react": "^16.2.0",
+    "react-data-grid": "^2.0.78",
     "react-dom": "^16.2.0"
   },
   "scripts": {

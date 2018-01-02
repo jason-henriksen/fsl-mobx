@@ -22,8 +22,8 @@ import autoBind from 'react-autobind';
         <button onClick={this.lessOne}>- -</button>
         <button onClick={this.plusOne}>+ +</button><br/>
         {this.myNumber} 
-        <p>The simple act of reading this.myNumber tells Mobx:<br/>
-        Whenever the value changes, re-render this component.</p>        
+        <p>The simple act of reading this.myNumber during a render() tells Mobx:<br/>
+        Whenever the value changes re-render this component.</p>        
       </div>
     );
   }

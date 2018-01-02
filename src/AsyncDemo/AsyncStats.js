@@ -1,15 +1,13 @@
 import React from 'react';
+import { action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import autoBind from 'react-autobind';
-import { action } from 'mobx';
-
 
 @inject("AsyncDemoStore") @observer
 export default class AsyncStats extends React.Component {
   constructor(props) { super(props); autoBind(this); }
 
-  // just call the method.  no boilde rplate.
-  // do not skip this and put the code into the onclick, you'll lack this-ness
+  // do not put the guts into the <button onclick/>. You'd lack your this-ness. Yay autobind!
   @action loadNumbers() { this.props.AsyncDemoStore.getManyDataItems(); }
 
   render() {
@@ -24,8 +22,8 @@ export default class AsyncStats extends React.Component {
           Final Sum....... {this.props.AsyncDemoStore.finalTotal}<br />
           Returned Count.. {this.props.AsyncDemoStore.returnCount} / {this.props.AsyncDemoStore.listSize}<br />
         </div>
-        <p>The code that retrieves the values, does not have to await other values returning.
-          Mobx gives me control over how the UI reacts to new data.</p>       
+        <p>Code that retrieves a service result does not have to manage side affects.
+          Mobx helps me write UI that reacts only to model changes.</p>       
       </div>
     );
   }
