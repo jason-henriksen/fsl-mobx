@@ -5,6 +5,9 @@ This repro holds example code for a meetup with [Reacto: The Sacramento React Me
 This class is hosted by [Full Stack Labs](https://www.fullstacklabs.co/)
 
 
+The associated slide show can be viewed here:
+[Slide Show](https://drive.google.com/open?id=1fk7lc31t0IRji4PxG3QtwjZ2mumucvbdd8q355yMxt0)
+
 ## Introduction
 Just as React is a 'reactive' view layer, so MobX is a reactive model layer.
 
